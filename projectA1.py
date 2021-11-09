@@ -6,15 +6,18 @@ def validateLogin(username):
    print("username entered :", username.get())
   #print("password entered :", password.get())
    return
-def quit():
+def quit1():
         root.destroy()
+def quit2():
+        window1.destroy()
 def showWindowMenu1():
+    global window1 
     window1 = Tk()  
     window1.geometry('1000x400')  
     window1.title('PLAY')
     myMenu1 = Menu()
     menuItem1 = Menu(tearoff=0)
-    menuItem1.add_command(label="Hard" , command = showWindowMenu4)
+    menuItem1.add_command(label="Hard" , command=lambda:[quit2(),showWindowMenu4()])
     menuItem1.add_command(label="Normal")
     menuItem1.add_command(label="Easy")
     myMenu1.add_cascade(label="Mode",menu=menuItem1,)
@@ -54,7 +57,7 @@ root.title("Game")
 #Button(root,image=photo).pack()
 #pic.mainloop
 
-myLable1 = Button(text="PLAY",fg="pink",font=('Tahoma', 20, 'bold'),bg="black",activebackground='pink',activeforeground="black",command=lambda:[validateLogin(),quit(),showWindowMenu1()]).place(x=467, y=175)
+myLable1 = Button(text="PLAY",fg="pink",font=('Tahoma', 20, 'bold'),bg="black",activebackground='pink',activeforeground="black",command=lambda:[validateLogin(),quit1(),showWindowMenu1()]).place(x=467, y=175)
 myLable2 = Button(text="HOW TO",fg="pink",font=('Tahoma', 20, 'bold'),bg="black",activebackground='pink',activeforeground="black",command = showWindowMenu2).place(x=444, y=245)
 myLable3 = Button(text="SCORE",fg="pink",font=('Tahoma', 20, 'bold'),bg="black",activebackground='pink',activeforeground="black",command = showWindowMenu3).place(x=456, y=315)
 
